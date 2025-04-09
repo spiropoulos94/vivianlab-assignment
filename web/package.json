@@ -1,0 +1,14 @@
+{
+  "name": "sentiment-analysis-api",
+  "version": "1.0.0",
+  "description": "Sentiment Analysis API using Transformers.js",
+  "main": "sentiment_api.js",
+  "type": "module",
+  "scripts": {
+    "start": "node sentiment_api.js"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.15.1",
+    "express": "^4.18.2"
+  }
+}

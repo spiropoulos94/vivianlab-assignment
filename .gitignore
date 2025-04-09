@@ -40,7 +40,7 @@ chat_log.txt
 
 # Data files
 *.csv
-*.json
+!package-lock.json
 *.pkl
 *.h5
 *.model
