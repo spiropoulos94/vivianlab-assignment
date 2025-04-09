@@ -57,9 +57,18 @@ app.post("/sentiment", async (req, res) => {
     // Get sentiment prediction
     const result = await sentimentAnalyzer(text);
 
+    // The model only predicts POSITIVE or NEGATIVE
+    // If the confidence score is between 0.4 and 0.6, consider it NEUTRAL
+    let label = result[0].label;
+    const score = result[0].score;
+
+    if (score > 0.4 && score < 0.6) {
+      label = "NEUTRAL";
+    }
+
     return res.json({
-      label: result[0].label,
-      score: result[0].score,
+      label: label,
+      score: score,
     });
   } catch (error) {
     console.error("Error:", error);
