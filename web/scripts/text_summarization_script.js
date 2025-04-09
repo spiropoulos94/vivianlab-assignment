@@ -1,8 +1,5 @@
 import { pipeline } from "@xenova/transformers";
 
-// Suppress ONNX warnings
-process.env.ORT_LOG_LEVEL = "3"; // Only show errors
-
 async function summarizeText(text) {
   try {
     // Load the summarization model
