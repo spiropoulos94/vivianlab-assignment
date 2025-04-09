@@ -1,6 +1,7 @@
 import openai
 from datetime import datetime
 import os
+import sys
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -39,8 +40,16 @@ def chat_with_gpt(prompt):
         return None
 
 if __name__ == "__main__":
-    # Example usage
-    prompt = "What is the capital of France?"
+    # Check if prompt is provided
+    if len(sys.argv) < 2:
+        print("Please provide a prompt as a command-line argument")
+        print("Usage: python openai_integration.py \"Your prompt here\"")
+        sys.exit(1)
+        
+    # Get prompt from command line arguments
+    prompt = sys.argv[1]
+    
+    # Get response
     response = chat_with_gpt(prompt)
     if response:
         print("Response:", response) 
