@@ -1,4 +1,5 @@
 from transformers import pipeline
+import sys
 
 def summarize_text(text):
     # Load the summarization model
@@ -10,20 +11,18 @@ def summarize_text(text):
     return summary[0]['summary_text']
 
 if __name__ == "__main__":
-    # Example text
-    long_text = """
-    The field of artificial intelligence has made significant progress in recent years. 
-    Machine learning models have become more sophisticated, capable of understanding 
-    and generating human-like text, recognizing images, and making complex decisions. 
-    Deep learning, a subset of machine learning, has been particularly influential, 
-    powering many of the recent breakthroughs in AI. These advances have led to 
-    practical applications in various industries, from healthcare to finance, 
-    revolutionizing how we interact with technology and process information.
-    """
+    # Check if text is provided
+    if len(sys.argv) < 2:
+        print("Please provide text to summarize as a command-line argument")
+        print('Usage: python text_summarization.py "Your long text here"')
+        sys.exit(1)
+        
+    # Get text from command line arguments
+    text = sys.argv[1]
     
     # Generate and print summary
-    summary = summarize_text(long_text)
-    print("Original Text:")
-    print(long_text)
+    summary = summarize_text(text)
+    print("\nOriginal Text:")
+    print(text)
     print("\nSummary:")
     print(summary) 
