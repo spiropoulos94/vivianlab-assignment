@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
-import { SentimentResponse, SentimentRequest } from "../types/sentiment";
+import { SentimentResponse } from "../types/sentiment";
 
-const API_URL = "http://localhost:5000/sentiment";
+const API_URL =
+  process.env.REACT_APP_API_URL || "http://localhost:5001/sentiment";
 
 export const useSentiment = () => {
   const [loading, setLoading] = useState(false);
@@ -14,8 +15,15 @@ export const useSentiment = () => {
       setLoading(true);
       setError(null);
 
-      const response = await axios.post<SentimentResponse>(API_URL, { text });
-      setResult(response.data);
+      const response = await axios.post(API_URL, { text });
+
+      // Transform the response to match the frontend's expected structure
+      const transformedResult = {
+        sentiment: response.data.label,
+        confidence: response.data.score,
+      };
+
+      setResult(transformedResult);
     } catch (err) {
       setError("Failed to analyze sentiment. Please try again.");
       console.error("Sentiment analysis error:", err);

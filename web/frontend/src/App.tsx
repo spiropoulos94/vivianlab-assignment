@@ -22,7 +22,9 @@ function App() {
     }
   };
 
-  const getSentimentColor = (sentiment: string) => {
+  const getSentimentColor = (sentiment?: string) => {
+    if (!sentiment) return "#9e9e9e";
+
     switch (sentiment.toLowerCase()) {
       case "positive":
         return "#4caf50";

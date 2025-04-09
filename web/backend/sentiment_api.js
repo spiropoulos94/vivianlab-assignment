@@ -1,8 +1,22 @@
 import express from "express";
 import { pipeline, env } from "@huggingface/transformers";
+import dotenv from "dotenv";
+import cors from "cors";
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
-const port = 5001;
+const port = process.env.PORT || 5001;
+
+// Enable CORS with specific options
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 // Enable JSON parsing
 app.use(express.json());
