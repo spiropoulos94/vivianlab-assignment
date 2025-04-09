@@ -7,4 +7,5 @@ torch==2.0.1
 matplotlib==3.7.2
 openai==0.27.8
 python-dotenv==1.0.0
-nltk==3.8.1 
+nltk==3.8.1
+seaborn==0.12.2 
