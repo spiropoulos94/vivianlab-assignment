@@ -34,6 +34,8 @@ ENV/
 *.swp
 *.swo
 
+# node
+node_modules/
 # Logs
 *.log
 chat_log.txt
