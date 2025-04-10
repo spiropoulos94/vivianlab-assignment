@@ -51,12 +51,15 @@ const prompt = process.argv[2];
 
 if (!prompt) {
   console.error("Please provide a prompt as a command-line argument");
-  console.error('Usage: npm run openai -- "Your prompt here"');
+  console.error(
+    'Usage: node web/scripts/openai_integration_script.mjs "Your prompt here"'
+  );
   process.exit(1);
 }
 
 // Run the chat
 async function main() {
+  console.log("Question:", prompt);
   const response = await chatWithGPT(prompt);
 
   if (response) {

@@ -19,23 +19,17 @@ async function summarizeText(text) {
   }
 }
 
-// Get text from command line arguments
-const text = process.argv[2];
-
-if (!text) {
-  console.error("Please provide text to summarize as a command-line argument");
-  console.error('Usage: npm run summarize -- "Your long text here"');
-  process.exit(1);
-}
+// Define the text to summarize
+const long_text = `The Amazon rainforest, often referred to as the "lungs of the Earth," produces around 20% of the world's oxygen and is home to a staggering variety of plant and animal species. Spanning over nine countries in South America, the majority of the forest lies within Brazil. Unfortunately, deforestation due to logging, agriculture, and mining poses a serious threat to this vital ecosystem, leading to loss of biodiversity and contributing to climate change.`;
 
 // Run the summarization
 async function main() {
-  const summary = await summarizeText(text);
+  const summary = await summarizeText(long_text);
 
   if (summary) {
     console.clear();
     console.log("--------------------------------");
-    console.log("Original:", text);
+    console.log("Original:", long_text);
     console.log("Summary:", summary);
     console.log("--------------------------------");
   }

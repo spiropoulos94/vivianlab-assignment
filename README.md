@@ -17,6 +17,8 @@ vivianlabs-assignment/
 │   │   └── ...
 │   ├── backend/            # Node.js TypeScript backend
 │   │   └── ...
+│   ├── scripts/            # JavaScript utility scripts
+│   │   └── ...
 │   └── .env                # Environment variables
 └── README.md
 ```
@@ -63,6 +65,36 @@ python ai_scripts/model_evaluation.py
 ```bash
 python ai_scripts/openai_integration_script.py
 ```
+
+## Web Scripts
+
+The `web/scripts` directory contains JavaScript utility scripts that can be run independently:
+
+### Requirements
+
+- Node.js
+- Required npm packages:
+  - openai
+  - dotenv
+  - @xenova/transformers
+
+### Running Web Scripts
+
+1. **OpenAI Integration Script**
+
+```bash
+node web/scripts/openai_integration_script.mjs "Your prompt here"
+```
+
+This script sends a prompt to OpenAI's API and logs the conversation to a file.
+
+2. **Text Summarization Script**
+
+```bash
+node web/scripts/text_summarization_script.mjs
+```
+
+This script uses the Transformers.js library to perform text summarization with a pre-trained model.
 
 ## Web Application
 
