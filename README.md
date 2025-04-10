@@ -49,6 +49,16 @@ python ai_scripts/openai_integration_script.py
 
 The web application consists of a React frontend (TypeScript) and a Node.js backend (JavaScript). It provides a user-friendly interface for sentiment analysis of text inputs, allowing users to enter text and receive sentiment classification results.
 
+### Environment Setup
+
+The web application uses a single `.env` file located in the `web/` directory. Copy the example file to create your own:
+
+```bash
+cp web/.env.example web/.env
+```
+
+This file contains all necessary configuration for both the frontend and backend.
+
 ### Running with Docker Compose (Recommended)
 
 1. Make sure you have Docker and Docker Compose installed on your system.
