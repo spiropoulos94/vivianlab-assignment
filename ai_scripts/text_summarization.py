@@ -11,18 +11,12 @@ def summarize_text(text):
     return summary[0]['summary_text']
 
 if __name__ == "__main__":
-    # Check if text is provided
-    if len(sys.argv) < 2:
-        print("Please provide text to summarize as a command-line argument")
-        print('Usage: python text_summarization.py "Your long text here"')
-        sys.exit(1)
-        
-    # Get text from command line arguments
-    text = sys.argv[1]
+    # Define the text to summarize
+    Long_text = """The Amazon rainforest, often referred to as the "lungs of the Earth," produces around 20% of the world's oxygen and is home to a staggering variety of plant and animal species. Spanning over nine countries in South America, the majority of the forest lies within Brazil. Unfortunately, deforestation due to logging, agriculture, and mining poses a serious threat to this vital ecosystem, leading to loss of biodiversity and contributing to climate change."""
     
     # Generate and print summary
-    summary = summarize_text(text)
+    summary = summarize_text(Long_text)
     print("\nOriginal Text:")
-    print(text)
+    print(Long_text)
     print("\nSummary:")
     print(summary) 
