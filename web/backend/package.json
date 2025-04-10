@@ -2,11 +2,10 @@
   "name": "sentiment-analysis-api",
   "version": "1.0.0",
   "description": "Sentiment Analysis API using Transformers.js",
-  "main": "sentiment_api.js",
+  "main": "dist/sentiment_api.js",
   "type": "module",
   "scripts": {
-    "start": "node sentiment_api.js",
-    "dev": "nodemon sentiment_api.js"
+    "start": "node --loader ts-node/esm sentiment_api.ts"
   },
   "dependencies": {
     "@huggingface/transformers": "^3.4.2",
@@ -16,6 +15,11 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
