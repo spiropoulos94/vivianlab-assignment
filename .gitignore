@@ -41,7 +41,6 @@ node_modules/
 chat_log.txt
 
 # Data files
-reviews.csv
 !package-lock.json
 *.pkl
 *.h5
